@@ -1,5 +1,5 @@
-Install-Module -Name "AWS.Tools.EC2" -Force -scope CurrentUser
-Import-Module -Name "AWS.Tools.EC2"
+# Install-Module -Name "AWS.Tools.EC2" -Force -scope CurrentUser
+# Import-Module -Name "AWS.Tools.EC2"
 
 Function EC2
 {
