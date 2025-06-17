@@ -5,7 +5,7 @@ on:
       - feature/test  # Trigger on push to the main branch
 jobs:
   run-powershell:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -22,10 +22,14 @@ jobs:
           $secretkey = "${{ secrets.AWS_SECRET_KEY }}"
           Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
           Initialize-AWSDefaultConfiguration -Region "us-east-2"
- 
-      - name: Run PowerShell Script
-        shell: pwsh
+          ./scripts/snapshot.ps1
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-        run: ./scripts/snapshot.ps1
+ 
+      # - name: Run PowerShell Script
+      #   shell: pwsh
+      #   env:
+      #     AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      #     AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      #   run: ./scripts/snapshot.ps1
