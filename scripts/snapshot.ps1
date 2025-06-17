@@ -70,6 +70,7 @@ $fileName = "AWS_Snapshot_Report.csv"
 $authority = "https://login.microsoftonline.com/189de737-c93a-4f5a-8b68-6f4ca9941912/oauth2/token"
 $resourceUrl = "https://communication.azure.com"
 $clientId = 'abddebe4-5f78-49f0-936d-c365d6b8e78d'
+$pass = 'faF8Q~JZsiQGrjWr9NJQBDYJK3pJIMFl5radbaBd'
 $body = @{grant_type = "client_credentials"
           client_id = $clientId
           client_secret = $pass
