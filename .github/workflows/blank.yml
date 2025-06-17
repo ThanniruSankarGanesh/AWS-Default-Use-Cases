@@ -12,7 +12,9 @@ jobs:
       - name: Install Aws PowerShell Module
         shell: pwsh
         run: |
-          Install-Module -Name AwsPowershell.NetCore -Force -Scope CurrentUser
+          Install-Module -Name AwsPowershell -Force -Scope CurrentUser
+          Import-Module -Name AwsPowershell -Force
+          
       - name: AWS Login using PowerShell
         shell: pwsh
         run: |
