@@ -1,0 +1,29 @@
+name: Fetch AWS Resources with Github
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+jobs:
+  run-powershell:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Install Aws PowerShell Module
+        shell: pwsh
+        run: |
+          Install-Module -Name AwsPowershell.NetCore -Force -Scope CurrentUser
+      - name: AWS Login using PowerShell
+        shell: pwsh
+        run: |
+          $accesskey = "${{ secrets.AWS_ACCESS_KEY }}"
+          $secretkey = "${{ secrets.AWS_SECRET_KEY }}"
+          Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
+          Initialize-AWSDefaultConfiguration -Region "us-east-1"
+ 
+      - name: Run PowerShell Script
+        shell: pwsh
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        run: ./scripts/ec2.ps1
