@@ -15,7 +15,7 @@ jobs:
           Install-Module -Name AwsPowershell -Force -Scope CurrentUser
           Import-Module -Name AwsPowershell -Force
 
-      - name: AWS Login using PowerShell
+      - name: AWS Login using PowerShell and Deploy the Report
         shell: pwsh
         run: |
           $accesskey = "${{ secrets.AWS_ACCESS_KEY }}"
