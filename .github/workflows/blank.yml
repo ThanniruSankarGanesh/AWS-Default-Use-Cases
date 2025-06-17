@@ -2,7 +2,7 @@ name: Fetch AWS Resources with Github
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - feature/test  # Trigger on push to the main branch
 jobs:
   run-powershell:
     runs-on: windows-latest
