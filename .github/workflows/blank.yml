@@ -28,4 +28,4 @@ jobs:
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-        run: ./scripts/ec2.ps1
+        run: ./scripts/snapshot.ps1
