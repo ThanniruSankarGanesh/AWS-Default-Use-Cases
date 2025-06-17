@@ -23,6 +23,7 @@ jobs:
           Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
           Initialize-AWSDefaultConfiguration -Region "us-east-2"
           ./scripts/ec2.ps1
+          
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
