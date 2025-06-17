@@ -66,16 +66,22 @@ $Script:EC2Data=@()
  
 Write-Output "$(get-date -Format "dd_MM_yyyy_hh_mm_ss") - Script Starts"
 write-output "Fetching Accounts"
-$script:Account = '222634374835'
+$script:Accounts = '222634374835'
 #$script:AccountName = 'AWS-NN-ConcurExpense-TST'
-$script:Region = "us-east-2"
+$script:Regions = @("us-east-2","eu-west-1")
  
  
- 
- 
- 
+
+foreach($script:Account in $Accounts){
+       foreach($script:Region in $Regions)
+       {
+          Write-Output "Start of Region Loop $($Region)"
           EC2
-     
+          Write-Output "End of Region Loop $($Region)"
+
+       }
+       Write-Output "End of Loop"
+    }
    
  $Script:EC2Data | Export-Csv -Path "AWS_EC2_Report.csv" -NoTypeInformation -Encoding UTF8 -Force
  
