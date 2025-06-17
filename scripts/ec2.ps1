@@ -1,3 +1,5 @@
+Install-Module -Name "AWS.Tools.EC2" -Force -scope CurrentUser
+Import-Module -Name "AWS.Tools.EC2"
 
 Function EC2
 {
@@ -112,12 +114,12 @@ $params = @{
     Body = @{
         senderAddress = 'hcl-elasticops@aa34110f-dc60-463e-b5cf-bd3b7c8ce04d.azurecomm.net'
         Content = @{
-            Subject = 'NovoNordisk TST | AWS | EC2 Report'
+            Subject = 'Eops | AWS | EC2 Report'
             PlainText = 'used azure communication service'
             html = "<html><head><title> !</title></head><body><p>Greetings,</p>
             <p>Please find attached NovoNordisk TST EC2 Report for your reference.</p>
             <p>
-                Note that this is automatically generated email via HCL ElasticOps Azure DevOps System. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM</p>
+                Note that this is automatically generated email via GitHub Actions. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM</p>
              <p><br>Regards,</p>
              <p>EOPS AUTONOMICS</p>
              </body></html>"
