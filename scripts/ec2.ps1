@@ -1,3 +1,4 @@
+
 Function EC2
 {
 param()
@@ -131,10 +132,7 @@ $params = @{
        
         recipients = @{
             To = @(
-                @{
-                address = 'more.pranjalthakaram@hcl.com'
-                displayName = 'More Pranjal'
-                }
+                
                 @{
                     address = 'thanniru.sanka@hcl.com'
                     displayName = 'sankar'
