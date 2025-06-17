@@ -134,7 +134,7 @@ $params = @{
             To = @(
                 
                 @{
-                    address = 'thanniru.sanka@hcl.com'
+                    address = 'thanniru.sanka@hcltech.com'
                     displayName = 'sankar'
                 }
                
