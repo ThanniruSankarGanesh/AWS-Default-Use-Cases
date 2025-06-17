@@ -66,7 +66,7 @@ Write-Output "$(get-date -Format "dd_MM_yyyy_hh_mm_ss") - Script Starts"
 write-output "Fetching Accounts"
 $script:Account = '222634374835'
 #$script:AccountName = 'AWS-NN-ConcurExpense-TST'
-$script:Region = "us-east-1"
+$script:Region = "us-east-2"
  
  
  
@@ -75,16 +75,9 @@ $script:Region = "us-east-1"
           EC2
      
    
+ $Script:EC2Data | Export-Csv -Path "AWS_EC2_Report.csv" -NoTypeInformation -Encoding UTF8 -Force
  
- 
-if($Script:EC2Data){
-    Write-Output "Creating CSV file forEC2 Data"
-    $Script:EC2Data | Export-Csv -Path "AWS_EC2_Report.csv" -NoTypeInformation -Encoding UTF8 -Force
- 
-}
-else{
-    Write-Output "No EC2 Data"
-}
+
  
 Write-Output "Script Completed"
  
