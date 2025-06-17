@@ -22,14 +22,9 @@ jobs:
           $secretkey = "${{ secrets.AWS_SECRET_KEY }}"
           Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
           Initialize-AWSDefaultConfiguration -Region "us-east-2"
-          ./scripts/snapshot.ps1
+          ./scripts/ec2.ps1
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
  
-      # - name: Run PowerShell Script
-      #   shell: pwsh
-      #   env:
-      #     AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-      #     AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-      #   run: ./scripts/snapshot.ps1
+    
