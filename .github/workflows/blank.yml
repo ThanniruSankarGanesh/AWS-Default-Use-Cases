@@ -14,14 +14,14 @@ jobs:
         run: |
           Install-Module -Name AwsPowershell -Force -Scope CurrentUser
           Import-Module -Name AwsPowershell -Force
-          
+
       - name: AWS Login using PowerShell
         shell: pwsh
         run: |
           $accesskey = "${{ secrets.AWS_ACCESS_KEY }}"
           $secretkey = "${{ secrets.AWS_SECRET_KEY }}"
           Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
-          Initialize-AWSDefaultConfiguration -Region "us-east-1"
+          Initialize-AWSDefaultConfiguration -Region "us-east-2"
  
       - name: Run PowerShell Script
         shell: pwsh
