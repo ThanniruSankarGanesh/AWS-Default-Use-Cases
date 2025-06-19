@@ -79,12 +79,12 @@ $script:Accounts = @('222634374835')
 $script:AccountName = 'AWS-Eops'
 $script:Regions = @("us-east-2","eu-west-1")
 
-foreach($script:Account in $Accounts){
+foreach($script:Account in $script:Accounts){
        foreach($script:Region in $Regions)
        {
           Write-Output "Start of Region Loop $($Region)"
           OrphanDisk
-          #OrphanNIC
+          OrphanNIC
           Write-Output "End of Region Loop $($Region)"
 
        }
@@ -140,7 +140,7 @@ $params = @{
             html = "<html><head><title> !</title></head><body><p>Greetings,</p>
             <p>Please find attached Eops Orphan Report for your reference.</p>
             <p>
-                Note that this is automatically generated email via HCL ElasticOps Azure DevOps System. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM</p>
+                Note that this is automatically generated email via Github Actions. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM</p>
              <p><br>Regards,</p>
              <p>EOPS AUTONOMICS</p>
              </body></html>"
