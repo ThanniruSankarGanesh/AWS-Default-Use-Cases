@@ -84,7 +84,7 @@ foreach($script:Account in $Accounts){
        {
           Write-Output "Start of Region Loop $($Region)"
           OrphanDisk
-          OrphanNIC
+          #OrphanNIC
           Write-Output "End of Region Loop $($Region)"
 
        }
