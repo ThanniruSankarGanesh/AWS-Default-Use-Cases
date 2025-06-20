@@ -22,7 +22,7 @@ jobs:
           $secretkey = "${{ secrets.AWS_SECRET_KEY }}"
           Set-AWSCredential -AccessKey $accesskey -SecretKey $secretkey
           Initialize-AWSDefaultConfiguration -Region "us-east-2"
-          ./scripts/dashboard.ps1
+          ./scripts/s3-report.ps1
 
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
