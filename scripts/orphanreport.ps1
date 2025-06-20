@@ -103,7 +103,7 @@ write-output $Script:Volumedata
 
 write-output "Script Completed"
 
-
+<#
 
 $fileName = "AWS_Unattached_Nics.csv"
 $fileName1 = "AWS_Unattached_Disks.csv"
@@ -182,6 +182,41 @@ $params = @{
 (Invoke-WebRequest @params -UseBasicParsing).RawContent
 
 
+#>
 
+
+
+$SMTPServer="smtp.office365.com"
+$SMTPClient=New-Object Net.Mail.SmtpClient($SMTPServer,587)
+$SMTPClient.EnableSsl= $true
+$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("svc_azure_automation@azule-energy.com","Totallynew@9254")
+$msg=New-Object Net.Mail.MailMessage
+ 
+ 
+$msg.From ="svc_azure_automation@azule-energy.com"
+$msg.To.Add("thanniru.sanka@hcltech.com")
+$msg.CC.Add("padam.sinha@hcltech.com")
+
+ 
+$msg.Subject="AWS | Orphan Report"
+$msg.Body= @"
+Greetings,
+ 
+Please find attached AWS Orphan Report for your reference.
+ 
+Note that this is automatically generated email via GitHub Actions. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM
+ 
+ 
+Regards,
+ 
+EOPS AUTONOMICS
+"@
+$att = new-object Net.Mail.Attachment("AWS_Unattached_Nics.csv")
+$att1 = new-object Net.Mail.Attachment("AWS_Unattached_Disks.csv")
+$msg.Attachments.Add($att)
+$msg.Attachments.Add($att1)
+$SMTPClient.Send($msg)
+ 
+Write-Output "Mail Sent"
 
 
