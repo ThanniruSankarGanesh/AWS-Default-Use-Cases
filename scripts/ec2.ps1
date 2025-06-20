@@ -1,6 +1,3 @@
-# Install-Module -Name "AWS.Tools.Common" -AllowClobber -Force -scope CurrentUser
-#  Import-Module -Name "AWS.Tools.Common" -Force
-
 Function EC2
 {
 param()
