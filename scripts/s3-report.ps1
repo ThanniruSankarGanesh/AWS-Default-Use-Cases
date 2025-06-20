@@ -206,7 +206,7 @@ else{
 
 write-output "Script Completed"
 
-<#
+
 $fileName = "AWS_S3_Report.csv"
 $authority = "https://login.microsoftonline.com/189de737-c93a-4f5a-8b68-6f4ca9941912/oauth2/token"
 $resourceUrl = "https://communication.azure.com"
@@ -275,42 +275,8 @@ $params = @{
     } | ConvertTo-Json -Depth 100
 }
 (Invoke-WebRequest @params -UseBasicParsing).RawContent
-#>
 
 
-
-$SMTPServer="smtp.office365.com"
-$SMTPClient=New-Object Net.Mail.SmtpClient($SMTPServer,587)
-$SMTPClient.EnableSsl= $true
-$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("svc_azure_automation@azule-energy.com","Totallynew@9254")
-$msg=New-Object Net.Mail.MailMessage
- 
- 
-$msg.From ="svc_azure_automation@azule-energy.com"
-$msg.To.Add("thanniru.sanka@hcltech.com")
-$msg.CC.Add("padam.sinha@hcltech.com")
-
- 
-$msg.Subject="AWS | S3 Report"
-$msg.Body= @"
-Greetings,
- 
-Please find attached AWS Orphan Report for your reference.
- 
-Note that this is automatically generated email via GitHub Actions. For any queries or concerns, please reach out at AUTONOMICS-DEVOPS@HCL.COM
- 
- 
-Regards,
- 
-EOPS AUTONOMICS
-"@
-$att = new-object Net.Mail.Attachment("AWS_S3_Report.csv")
-#$att1 = new-object Net.Mail.Attachment("AWS_Unattached_Disks.csv")
-$msg.Attachments.Add($att)
-#$msg.Attachments.Add($att1)
-$SMTPClient.Send($msg)
- 
-Write-Output "Mail Sent"
 
 
 
