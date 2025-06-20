@@ -178,7 +178,7 @@ $script:Accounts = @('222634374835')
 $script:AccountName = 'AWS-Eops'
 $script:Regions = @("us-east-1")
     
-       S3Reporting
+#       S3Reporting
 
 foreach($script:Account in $Accounts){
        foreach($script:Region in $Regions)
@@ -260,12 +260,8 @@ $params = @{
             Cc = @(
                
                 @{
-                address = 'more.pranjalthakaram@hcl.com'
-                displayName = 'More Pranjal'
-                }
-                @{
-                    address = 'thanniru.sanka@hcl.com'
-                    displayName = 'sankar'
+                address = 'padam.sinha@hcltech.com'
+                displayName = 'Padam'
                 }
             )
         }
