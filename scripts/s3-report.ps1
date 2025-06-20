@@ -176,7 +176,7 @@ write-output "$(get-date -Format "dd_MM_yyyy_hh_mm_ss") - Script Starts"
 write-output "Fetching Accounts"
 $script:Accounts = @('222634374835')
 $script:AccountName = 'AWS-Eops'
-$script:Regions = @("us-east-2","eu-west-1")
+$script:Regions = @("us-east-1")
     
        S3Reporting
 
