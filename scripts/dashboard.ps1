@@ -1,5 +1,5 @@
-param([String]$pass)
-Write-Output "The password is $($pass)"
+# param([String]$pass)
+# Write-Output "The password is $($pass)"
 Function EC2Count{
 param() 
 try
